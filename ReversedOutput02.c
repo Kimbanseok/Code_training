@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-
+ 
 int main()
 {
 	char input_arr[30] = { 0, };
