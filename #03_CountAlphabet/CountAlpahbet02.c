@@ -3,32 +3,40 @@
 
 int main()
 {
-	char input[30] = { '\0', }; //처음 생설할 때만 적용가능
-	int arr[128] = { 0, };
+	char input_alpha[30] = { '\0', };
+	
 	int i = 0, j = 0;
-	int a_v = 0; //ascll value
+	int count = 0; //ascll value
+	char temp; 
 
-	int num = 65;
-
-	memset(arr, 0, sizeof(int) * 128);
+	//memset(arr, 0, sizeof(int) * 128);
 
 	printf("input : ");
-	scanf("%s", input);
+	scanf("%s", input_alpha);
 
-	printf("input : %s \n", input);
+	printf("received input : %s \n", input_alpha);
 
-	for (i = 0; input[i] != '\0'; i++)
+	while (input_alpha[i] != '\0')
 	{
-		a_v = input[i];
+		temp = input_alpha[j];
 
-		arr[a_v]++;
+		if (input_alpha[i] == temp)
+		{
+			count++;
+		}
+
+		else if (input_alpha[i] != temp || input_alpha[i+1]=='\n')
+		{
+			printf("%c : %d\n", temp, count);
+			j = i;
+			count = 1;
+		}
+
+
+		i++;
 	}
+	i = 0;
+	j = 0;
 
-
-	for (j = 0; j < 128; j++)
-	{
-		if (arr[j] != 0)
-			printf("%c : %d  ", j, arr[j]);
-	}
 
 }
